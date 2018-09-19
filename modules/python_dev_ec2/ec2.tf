@@ -26,7 +26,7 @@ resource "aws_instance" "python_dev" {
 
   root_block_device {
     volume_type           = "gp2"
-    volume_size           = "12"
+    volume_size           = "${var.volume_size}"
     delete_on_termination = true
   }
 

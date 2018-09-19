@@ -19,3 +19,8 @@ variable "instance_type" {
   description = "Specify instance type for EC2 instance"
   default = "t2.micro"
 }
+
+variable "volume_size" {
+  description = "Specify root volume size for EC2 instance"
+  default = "12"
+}
