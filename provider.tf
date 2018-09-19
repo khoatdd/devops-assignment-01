@@ -1,2 +1,4 @@
 # Credentials are set by environment variables
-provider "aws" {}
+provider "aws" {
+    region = "${var.region}"
+}
