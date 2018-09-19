@@ -11,7 +11,7 @@ variable "region" {
   default = "us-east-2"
 }
 
-variable "public_key" {
+variable "public_key_path" {
   description = "Public key used to create AWS key pair"
 }
 
