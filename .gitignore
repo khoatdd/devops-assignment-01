@@ -7,3 +7,7 @@
 
 # Crash log files
 crash.log
+
+# SSH key pair for local development
+ssh_key
+ssh_key.pub
