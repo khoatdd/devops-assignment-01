@@ -6,10 +6,10 @@ data "aws_ami" "ubuntu" {
 
   filter {
     name   = "name"
-    values = ["ubuntu-xenial-16.04-amd64-server-*"]
+    values = ["ubuntu/images/hvm-ssd/ubuntu-xenial-16.04-amd64-server-????????"]
   }
 
-  owners = ["amazon"]
+  owners = ["099720109477"]
 }
 
 #################
@@ -33,5 +33,21 @@ resource "aws_instance" "python_dev" {
   tags {
     Name        = "python_dev"
     SSHusername = "ubuntu"
+  }
+
+  connection {
+    type        = "ssh"
+    user        = "ubuntu"
+    private_key = "${file("${var.private_key_path}")}"
+  }
+
+  provisioner "remote-exec" {
+    inline = [
+      "export LC_ALL='en_US.UTF-8'",
+      "export LC_CTYPE='en_US.UTF-8'",
+      "sudo apt-get update",
+      "sudo apt-get install -y nginx vim python-pip",
+      "sudo pip install awscli uwsgi pipenv",
+    ]
   }
 }

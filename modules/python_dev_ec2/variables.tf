@@ -24,3 +24,7 @@ variable "volume_size" {
   description = "Specify root volume size for EC2 instance"
   default = "12"
 }
+
+variable "private_key_path" {
+  description = "Specify path to the private key used to ssh to EC2 instance"
+}
